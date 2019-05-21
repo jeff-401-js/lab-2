@@ -20,4 +20,24 @@ describe('List Data Structure', () => {
     expect(stuff.data[1]).toEqual('b');
   });
 
+  it('pops items at the end of the data set', () => {
+    let stuff = new List();
+    stuff.push('a');
+    stuff.push('b');
+    stuff.push('c');
+    stuff.pop();
+    expect(stuff.length).toEqual(2);
+    expect(stuff.data[1]).toEqual('b');
+  });
+
+  it('removes items at the beginning of the data set', () => {
+    let stuff = new List();
+    stuff.push('a');
+    stuff.push('b');
+    stuff.push('c');
+    stuff.shift();
+    expect(stuff.length).toEqual(2);
+    expect(stuff.data[1]).toEqual('b');
+  });
+
 });
