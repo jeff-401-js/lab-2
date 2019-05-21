@@ -1,7 +1,20 @@
 
 'use strict';
 
+const Vehicle = () => ({
+  drive: () => {
+    return 'Moving Forward';
+  },
+  stop: () => {
+    return 'Stopping';
+  }
+})
 function CarFactory() {
+
 }
 
-module.exports = CarFactory;
+function MotorcycleFactory{
+
+}
+
+module.exports = {CarFactory, MotorcycleFactory};
