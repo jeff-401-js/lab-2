@@ -18,8 +18,8 @@ List.prototype.push = function(item) {
  * @returns {*}
  */
 List.prototype.pop = function() {
-  let returnValue = this.data[this.length - 1];
-  delete this.data[this.length - 1];
+  let returnValue = this.data[this.length ];
+  delete this.data[this.length];
   this.length--;
   return returnValue;
 };
