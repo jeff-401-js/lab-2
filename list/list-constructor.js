@@ -30,4 +30,14 @@ List.prototype.shift = function() {
   return returnValue;
 };
 
+List.prototype.unshift = function(item) {
+
+  for(let i = this.length; i > 0; i--){
+    this[i] = this[i - 1];
+  }
+  this[0] = item;
+  this.length++;
+  return this.length;
+};
+
 module.exports = List;

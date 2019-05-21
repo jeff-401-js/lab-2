@@ -8,4 +8,5 @@ stuff.push('b');
 stuff.push('c');
 console.log(stuff);
 // console.log(stuff.pop());
-console.log(stuff.shift());
+// console.log(stuff.shift());
+console.log(stuff.unshift(1));
