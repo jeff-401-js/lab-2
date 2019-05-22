@@ -12,41 +12,69 @@ describe('List Data Structure', () => {
     expect(stuff.data).toEqual({});
   });
 
-  it('pushes items to the end of the data set', () => {
-    let stuff = new List();
-    stuff.push('a');
-    stuff.push('b');
-    expect(stuff.length).toEqual(2);
-    expect(stuff.data[1]).toEqual('b');
+  describe('push()', () => {
+
+    it('pushes items to the end of the data set', () => {
+      let stuff = new List();
+      stuff.push('a');
+      stuff.push('b');
+      expect(stuff.length).toEqual(2);
+      expect(stuff.data[1]).toEqual('b');
+    });
+
+    it('should throw an error with no parameters provided', () => {
+      let myList = new List();
+      try{
+        myList.push();
+      }catch(e){
+        expect(e.message).toEqual('no item provided');
+      }
+    });
   });
 
-  it('pushes items to the end of the data set', () => {
-    let stuff = new List();
-    stuff.push('a');
-    stuff.push('b');
-    expect(stuff.length).toEqual(2);
-    expect(stuff.data[1]).toEqual('b');
+  describe('pop()', () => {
+
+    it('pops items at the end of the data set', () => {
+      let stuff = new List();
+      stuff.push('a');
+      stuff.push('b');
+      stuff.push('c');
+      stuff.pop();
+      expect(stuff.length).toEqual(2);
+      expect(stuff.data[1]).toEqual('b');
+    });
+
+    it('should throw an error with no parameters provided', () => {
+      let myList = new List();
+      try{
+        myList.pop();
+      }catch(e){
+        expect(e.message).toEqual('no array');
+      }
+    });
+  });
+  describe('shift()', () => {
+
+    it('removes items at the beginning of the data set', () => {
+      let stuff = new List();
+      stuff.push('a');
+      stuff.push('b');
+      stuff.push('c');
+      stuff.shift();
+      expect(stuff.length).toEqual(2);
+      expect(stuff.data[0]).toEqual('b');
+    });
+
+    it('should throw an error with no parameters provided', () => {
+      let myList = new List();
+      try{
+        myList.pop();
+      }catch(e){
+        expect(e.message).toEqual('no array');
+      }
+    });
   });
 
-  it('pops items at the end of the data set', () => {
-    let stuff = new List();
-    stuff.push('a');
-    stuff.push('b');
-    stuff.push('c');
-    stuff.pop();
-    expect(stuff.length).toEqual(2);
-    expect(stuff.data[1]).toEqual('b');
-  });
-
-  it('removes items at the beginning of the data set', () => {
-    let stuff = new List();
-    stuff.push('a');
-    stuff.push('b');
-    stuff.push('c');
-    stuff.shift();
-    expect(stuff.length).toEqual(2);
-    expect(stuff.data[0]).toEqual('b');
-  });
 
   it('adds items at the beginning of the data set', () => {
     let stuff = new List();
@@ -69,5 +97,6 @@ describe('List Data Structure', () => {
     expect(stuff.length).toEqual(3);
     expect(stuff.data[0]).toEqual(2);
   });
+
 
 });

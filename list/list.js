@@ -1,6 +1,5 @@
 'use strict';
 
-const errorHandler = require('./error-handler.js');
 
 class List {
 
@@ -16,22 +15,10 @@ class List {
 
   push(item) {
     // Add an item to the end
-    try {
-      this.data[this.length] = item;
-      this.length++;
-    }
-    catch(e){
-      let error = {
-        timestamp: new Date(),
-        severity: 3,
-        reason: 'Something went wrong',
-        message: e.message,
-        file: e.file,
-        position: e.column,
-        stack: e.stack,
-      };
-      errorHandler.dealWith(error);
-    }
+    if(!item) throw Error('no item provided');
+
+    this.data[this.length] = item;
+    this.length++;
   }
 
   /**
@@ -40,49 +27,24 @@ class List {
    */
 
   pop() {
-    try{
-      let returnValue = this.data[this.length];
-      delete this.data[this.length];
-      this.length--;
-      return returnValue;
-    }
-    catch(e){
-      let error = {
-        timestamp: new Date(),
-        severity: 3,
-        reason: 'Something went wrong',
-        message: e.message,
-        file: e.file,
-        position: e.column,
-        stack: e.stack,
-      };
-      errorHandler.dealWith(error);
-    }
+    if(this.length < 1) throw Error('no array');
+    let returnValue = this.data[this.length];
+    delete this.data[this.length];
+    this.length--;
+    return returnValue;
   }
+  
 
   shift() {
-    try{
-      let returnValue = this.data[0];
-      delete this.data[0];
-      for(let i = 0; i < this.length; i++){
-        this.data[i] = this.data[i +1];
-      }
-      this.length--;
-      return returnValue;
+    let returnValue = this.data[0];
+    delete this.data[0];
+    for(let i = 0; i < this.length; i++){
+      this.data[i] = this.data[i +1];
     }
-    catch(e){
-      let error = {
-        timestamp: new Date(),
-        severity: 3,
-        reason: 'Something went wrong',
-        message: e.message,
-        file: e.file,
-        position: e.column,
-        stack: e.stack,
-      };
-      errorHandler.dealWith(error);
-    }
+    this.length--;
+    return returnValue;
   }
+  
 
   unshift(item) {
     try{
