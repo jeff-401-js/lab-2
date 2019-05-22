@@ -7,7 +7,7 @@ const Vehicle = () => ({
   },
   stop: () => {
     return 'Stopping';
-  }
+  },
 });
 
 function CarFactory(name, wheels) {

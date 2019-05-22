@@ -6,7 +6,7 @@ Jeff
 
 ### Links and Resources
 * [submission PR](https://github.com/JeffLawrence1/lab-2/pull/3)
-* [travis](https://www.travis-ci.com/jeff-401-js/lab-3)
+* [travis](https://www.travis-ci.com/jeff-401-js/lab-4)
 * [back-end](http://xyz.com) (when applicable)
 * [front-end](http://xyz.com) (when applicable)
 
