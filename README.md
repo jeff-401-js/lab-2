@@ -5,7 +5,7 @@ lab two
 Jeff
 
 ### Links and Resources
-* [submission PR](https://github.com/JeffLawrence1/lab-2/pull/5)
+* [submission PR](https://github.com/JeffLawrence1/lab-2/pull/7)
 * [travis](https://www.travis-ci.com/jeff-401-js/lab-2)
 * [back-end](http://xyz.com) (when applicable)
 * [front-end](http://xyz.com) (when applicable)

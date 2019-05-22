@@ -68,35 +68,56 @@ describe('List Data Structure', () => {
     it('should throw an error with no parameters provided', () => {
       let myList = new List();
       try{
-        myList.pop();
+        myList.shift();
       }catch(e){
         expect(e.message).toEqual('no array');
       }
     });
   });
 
+  describe('unshift()', () => {
 
-  it('adds items at the beginning of the data set', () => {
-    let stuff = new List();
-    stuff.push('a');
-    stuff.push('b');
-    stuff.push('c');
-    stuff.unshift(1);
-    expect(stuff.length).toEqual(4);
-    expect(stuff.data[0]).toEqual(1);
-  });
-
-  it('do something to each item of the data set', () => {
-    let stuff = new List();
-    stuff.push(1);
-    stuff.push(2);
-    stuff.push(3);
-    stuff.foreach((item) => {
-      return item*2;
+    it('adds items at the beginning of the data set', () => {
+      let stuff = new List();
+      stuff.push('a');
+      stuff.push('b');
+      stuff.push('c');
+      stuff.unshift(1);
+      expect(stuff.length).toEqual(4);
+      expect(stuff.data[0]).toEqual(1);
     });
-    expect(stuff.length).toEqual(3);
-    expect(stuff.data[0]).toEqual(2);
+
+    it('should throw an error with no parameters provided', () => {
+      let myList = new List();
+      try{
+        myList.unshift();
+      }catch(e){
+        expect(e.message).toEqual('no item provided');
+      }
+    });
   });
 
+  describe('foreach()', () => {
 
+    it('do something to each item of the data set', () => {
+      let stuff = new List();
+      stuff.push(1);
+      stuff.push(2);
+      stuff.push(3);
+      stuff.foreach((item) => {
+        return item*2;
+      });
+      expect(stuff.length).toEqual(3);
+      expect(stuff.data[0]).toEqual(2);
+    });
+
+    it('should throw an error with no parameters provided', () => {
+      let myList = new List();
+      try{
+        myList.foreach();
+      }catch(e){
+        expect(e.message).toEqual('no callback provided');
+      }
+    });
+  });
 });
